@@ -1,0 +1,24 @@
+<!DOCTYPE html>    
+<html>    
+<body>    
+<h2>Test iframe openid</h2>   
+<input type="text" id="input" placeholder="url" style="width: 800px">
+<br/>
+<br/>
+<button onclick="openUrl()">open</button>
+<br/>
+<br/>
+<div>
+
+<iframe id="iframe" src="" height="500" width="800"></iframe>    
+</div>
+<br/>
+
+</body> 
+<script>
+    function openUrl() {
+            document.querySelector("#iframe").src
+                = document.querySelector("#input").value;
+        }
+</script>  
+</html>  
