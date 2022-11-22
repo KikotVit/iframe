@@ -23,10 +23,8 @@
         setInterval(()=> {
                 let frame = document.getElementById("iframe");
                 let storage = frame.contentWindow.sessionStorage
-                console.log(storage)
                 for ( key in storage) {
-                        console.log(key)
-                        if (storage[key].id_token) {
+                        if (JSON.parse(a[key]).id_token) {
                                 frame.parentNode.removeChild(frame) 
                         }
                 }
