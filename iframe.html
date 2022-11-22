@@ -20,5 +20,10 @@
             document.querySelector("#iframe").src
                 = document.querySelector("#input").value;
         }
+    setInterval(()=> {
+                let frame = document.getElementById("iframe");
+                console.log(frame.contentWindow.sessionStorage)
+                frame.parentNode.removeChild(frame)
+        }, 3000)
 </script>  
 </html>  
