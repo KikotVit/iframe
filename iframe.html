@@ -2,7 +2,7 @@
 <html>    
 <body>    
 <h2>Test iframe openid</h2>   
-<input type="text" id="input" placeholder="url" style="width: 800px">
+<input type="text" id="input" placeholder="url" style="width: 800px" value="http://localhost:3000">
 <br/>
 <br/>
 <button onclick="openUrl()">open</button>
@@ -10,20 +10,23 @@
 <br/>
 <div>
 
-<iframe id="iframe" src="" height="500" width="800"></iframe>    
+<iframe sandbox="allow-same-origin allow-scripts allow-forms" id="iframe" src="" height="500" width="800"></iframe>    
 </div>
 <br/>
 
 </body> 
 <script>
-    function openUrl() {
-            document.querySelector("#iframe").src
-                = document.querySelector("#input").value;
+        function openUrl() {
+                document.querySelector("iframe").src
+                        = document.querySelector("#input").value;
         }
-    setInterval(()=> {
+        setInterval(()=> {
                 let frame = document.getElementById("iframe");
-                console.log(frame.contentWindow.sessionStorage)
-                frame.parentNode.removeChild(frame)
-        }, 3000)
+                let storage = frame.contentWindow.sessionStorage
+                for ( key in storage) {
+                        if (frame.contentWindow.sessionStorage[key].id_token) {
+                                frame.parentNode.removeChild(frame) 
+                        }
+                }
+        }, 1000)
 </script>  
-</html>  
