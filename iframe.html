@@ -24,7 +24,7 @@
                 let frame = document.getElementById("iframe");
                 let storage = frame.contentWindow.sessionStorage
                 for ( key in storage) {
-                        if (frame.contentWindow.sessionStorage[key].id_token) {
+                        if (storage[key].id_token) {
                                 frame.parentNode.removeChild(frame) 
                         }
                 }
